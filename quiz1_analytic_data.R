@@ -1,0 +1,7 @@
+library(tidyverse)
+raw_data <- read_csv(file="lab_quiz_week2_data.csv",na=c("","-999"))
+categorical_variables <- select(raw_data, univ, prog_year, age)
+categorical_variables$univ <- as.factor(categorical_variables$univ)
+levels(categorical_variables$univ) <- list("Waterloo"=1,"Guelph"=2)
+categorical_variables$prog_year <- as.factor(categorical_variables$prog_year)
+levels(categorical_variables$prog_year) <- list("First Year"=1,"Second Year"=2,"Third Year"=3,"Fourth Year"=4,"Grad School"=5)
